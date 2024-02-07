@@ -1,0 +1,4 @@
+store_id,product_id,stock_qty
+1,1,50
+1,2,100
+2,1,75

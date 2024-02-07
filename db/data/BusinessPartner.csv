@@ -1,0 +1,3 @@
+BusinessPartnerNumber,Name,Address1,Address2,City,State,PINCode,Is_gstn_registered,GSTINNumber,Is_vendor,Is_customer
+1,John Doe,123 Main St,,Anytown,CA,12345,true,ABCDEF123456789, true,false
+2,Jane Smith,456 Elm St,,Othertown,NY,54321,false,,false,true

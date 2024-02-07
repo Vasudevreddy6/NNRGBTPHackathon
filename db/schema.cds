@@ -1,6 +1,12 @@
 namespace sap.btp.electronics;
 
-using { UUID } from '@sap/cds/common';
+//namespace com.electronics;
+
+entity ExampleEntity {
+  key id : UUID;
+  // Other properties of the entity
+}
+
 
 entity BusinessPartner {
   key BusinessPartnerNumber       : UUID;
@@ -36,8 +42,8 @@ entity Product {
 
 entity StockData {
   key stockDataID                  : UUID;
-  store_id                        : Association to Store;
-  product_id                      : Association to Product;
+  store                           : Association to Store;
+  product                         : Association to Product;
   stockQty                        : Integer;
 }
 
@@ -45,28 +51,30 @@ entity PurchaseOrder {
   key PurchaseOrderNumber          : UUID;
   businessPartner                 : Association to BusinessPartner;
   purchaseOrderDate               : DateTime;
-  items                           : Composition of many PurchaseOrderItem on parent.purchaseOrder;
+  items                           : Composition of many PurchaseOrderItem ;
+
 }
 
 entity PurchaseOrderItem {
   key purchaseOrderItemID          : UUID;
-  product_id                      : Association to Product;
+  product                         : Association to Product;
   qty                             : Integer;
   price                           : Decimal(15,2);
-  store_id                        : Association to Store;
+  store                           : Association to Store;
 }
 
 entity SalesOrder {
   key SalesOrderNumber             : UUID;
   businessPartner                 : Association to BusinessPartner;
   salesDate                       : DateTime;
-  items                           : Composition of many SalesOrderItem on parent.salesOrder;
+ items                           : Composition of many SalesOrderItem;
+
 }
 
 entity SalesOrderItem {
   key salesOrderItemID             : UUID;
-  product_id                      : Association to Product;
+  product                         : Association to Product;
   qty                             : Integer;
   price                           : Decimal(15,2);
-  store_id                        : Association to Store;
+  store                           : Association to Store;
 }
